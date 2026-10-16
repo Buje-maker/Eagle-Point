@@ -26,31 +26,31 @@ nav a:hover{color:var(--gold)}
 /* buttons */
 .btn{display:inline-block;background:var(--gold);color:var(--navy);font-family:var(--display);font-weight:600;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;padding:14px 26px;border-radius:8px;border:2px solid var(--gold);font-size:17px;text-align:center}
 .btn:hover{background:#d8b24a}
-.btn.ghost{background:transparent;color:var(--ivory);border-color:var(--ivory)}
-.btn.ghost:hover{background:rgba(247,244,236,.12)}
+.btn.ghost{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn.ghost:hover{background:rgba(20,42,59,.08)}
 .btn.small{padding:9px 18px;font-size:15px}
 .btn.tiny{padding:6px 14px;font-size:14px;border-radius:6px}
 
 /* hero */
-.hero{position:relative;background:var(--navy);color:var(--ivory);overflow:hidden;padding-block:64px 72px}
-.snow{position:absolute;inset:0;opacity:.5;pointer-events:none;background:
-radial-gradient(circle,#fff 0 2px,transparent 3px) 20px 30px/110px 90px,
-radial-gradient(circle,#dfe8ee 0 1.5px,transparent 2.5px) 60px 10px/80px 66px,
+.hero{position:relative;background:linear-gradient(180deg,#DCEAF2,#F4F8FB);color:var(--navy);overflow:hidden;padding-block:64px 72px}
+.snow{position:absolute;inset:0;opacity:.9;pointer-events:none;background:
+radial-gradient(circle,#B9D3E2 0 2px,transparent 3px) 20px 30px/110px 90px,
+radial-gradient(circle,#C9DCE8 0 1.5px,transparent 2.5px) 60px 10px/80px 66px,
 radial-gradient(circle,#fff 0 3px,transparent 4px) 40px 60px/160px 120px;
 animation:fall 28s linear infinite}
 @keyframes fall{to{background-position:20px 630px,60px 406px,40px 780px}}
 @media (prefers-reduced-motion:reduce){.snow{animation:none}html{scroll-behavior:auto}}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
-.eyebrow{font-family:var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-size:15px}
+.eyebrow{font-family:var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark);font-size:15px}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(48px,9vw,92px);line-height:1;text-transform:uppercase;margin:8px 0}
-.tagline{font-family:var(--display);font-weight:500;font-size:clamp(22px,4vw,30px);color:var(--gold);letter-spacing:.03em}
+.tagline{font-family:var(--display);font-weight:500;font-size:clamp(22px,4vw,30px);color:var(--gold-dark);letter-spacing:.03em}
 .lead{margin-top:14px;font-family:var(--display);letter-spacing:.08em;text-transform:uppercase;font-size:16px}
 .dot{color:var(--gold);margin:0 6px}
 .actions{display:flex;gap:14px;flex-wrap:wrap;margin:28px 0 22px}
 .checks{display:flex;gap:22px;flex-wrap:wrap;list-style:none;font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:15px}
 .checks li::before{content:"\2713";color:var(--gold);margin-right:8px;font-weight:700}
 .hero-art img{width:100%;max-width:520px;margin-inline:auto}
-.hero-art img.mascot{max-width:340px;filter:drop-shadow(0 10px 18px rgba(0,0,0,.35))}
+.hero-art img.mascot{max-width:340px;filter:drop-shadow(0 8px 14px rgba(20,42,59,.18))}
 
 /* proof strip */
 .proof{background:var(--gold);color:var(--navy)}
@@ -72,11 +72,11 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(48px,9vw,92px);lin
 .tint{background:var(--soft)}
 .title{font-family:var(--display);font-weight:600;font-size:clamp(30px,5vw,42px);text-transform:uppercase;color:var(--navy);text-align:center;margin-bottom:34px;letter-spacing:.02em}
 .title.left{text-align:left;margin-bottom:14px}
-.band{background:var(--deep);color:var(--ivory);padding-block:54px}
+.band{background:#2A4A60;color:var(--ivory);padding-block:54px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
 .card{border-left:6px solid var(--gold);padding:6px 0 6px 22px}
 .card h2{font-family:var(--display);font-weight:600;font-size:30px;text-transform:uppercase;margin-bottom:8px}
-.card p{color:#DCE2E6}
+.card p{color:#E8EEF2}
 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
 .tile{background:var(--white);border:1px solid var(--rule);border-radius:12px;padding:22px}
 .tile h3{font-family:var(--display);font-weight:600;font-size:22px;text-transform:uppercase;color:var(--navy);margin-bottom:6px}
