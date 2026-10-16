@@ -1,0 +1,33 @@
+<svg viewBox="0 0 320 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Eagle Point mascot: an eagle in a winter hat, goggles and scarf">
+<!-- body and wings -->
+<path d="M70 340 C60 270 90 235 160 235 C230 235 260 270 250 340 Z" fill="#5A3E2B"/>
+<path d="M62 340 C40 290 56 250 92 238 C86 270 90 305 100 340 Z" fill="#46301F"/>
+<path d="M258 340 C280 290 264 250 228 238 C234 270 230 305 220 340 Z" fill="#46301F"/>
+<!-- scarf -->
+<path d="M96 232 C130 262 190 262 224 232 L232 262 C190 292 130 292 88 262 Z" fill="#CBA135"/>
+<path d="M96 232 C130 262 190 262 224 232" fill="none" stroke="#8A6D1C" stroke-width="4"/>
+<path d="M186 270 L212 330 L240 318 L214 262 Z" fill="#CBA135" stroke="#8A6D1C" stroke-width="4" stroke-linejoin="round"/>
+<path d="M196 292 l24 -9 M203 309 l24 -9" stroke="#142A3B" stroke-width="5" stroke-linecap="round"/>
+<!-- head -->
+<ellipse cx="160" cy="165" rx="78" ry="76" fill="#FFFFFF" stroke="#142A3B" stroke-width="5"/>
+<!-- beanie -->
+<path d="M80 128 C84 62 236 62 240 128 Z" fill="#142A3B" stroke="#0F1F2B" stroke-width="5" stroke-linejoin="round"/>
+<rect x="76" y="116" width="168" height="26" rx="13" fill="#CBA135" stroke="#8A6D1C" stroke-width="4"/>
+<path d="M104 118 v22 M128 118 v22 M152 118 v22 M176 118 v22 M200 118 v22 M224 118 v22" stroke="#8A6D1C" stroke-width="3"/>
+<circle cx="160" cy="58" r="17" fill="#F7F4EC" stroke="#142A3B" stroke-width="5"/>
+<!-- goggles pushed up -->
+<rect x="88" y="136" width="144" height="18" rx="9" fill="#142A3B"/>
+<!-- eyes -->
+<ellipse cx="128" cy="168" rx="17" ry="20" fill="#fff" stroke="#142A3B" stroke-width="4"/>
+<ellipse cx="192" cy="168" rx="17" ry="20" fill="#fff" stroke="#142A3B" stroke-width="4"/>
+<circle cx="132" cy="170" r="9" fill="#142A3B"/><circle cx="188" cy="170" r="9" fill="#142A3B"/>
+<circle cx="135" cy="166" r="3.2" fill="#fff"/><circle cx="191" cy="166" r="3.2" fill="#fff"/>
+<!-- brows -->
+<path d="M108 146 L146 156 M212 146 L174 156" stroke="#142A3B" stroke-width="6" stroke-linecap="round"/>
+<!-- beak -->
+<path d="M132 182 C132 172 188 172 188 182 C188 214 168 240 160 244 C152 240 132 214 132 182 Z" fill="#E5B93E" stroke="#8A6D1C" stroke-width="5" stroke-linejoin="round"/>
+<path d="M146 200 C156 206 164 206 174 200" fill="none" stroke="#8A6D1C" stroke-width="4" stroke-linecap="round"/>
+<circle cx="150" cy="188" r="3" fill="#8A6D1C"/><circle cx="170" cy="188" r="3" fill="#8A6D1C"/>
+<!-- cheeks -->
+<circle cx="104" cy="196" r="9" fill="#F3C9B8" opacity=".7"/><circle cx="216" cy="196" r="9" fill="#F3C9B8" opacity=".7"/>
+</svg>
