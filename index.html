@@ -43,7 +43,7 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn small" href="tel:+15074948960">Call / Text</a>
+    <button class="btn small" type="button" data-open-quote>Free estimate</button>
   </div>
 </header>
 
@@ -58,7 +58,7 @@
         <p class="lead">Driveways <span class="dot">&bull;</span> Walkways <span class="dot">&bull;</span> Sidewalks <span class="dot">&bull;</span> Vehicle Clearing</p>
         <div class="actions">
           <a class="btn" href="sms:+15074948960">Call / Text for a free estimate</a>
-          <a class="btn ghost" href="mailto:Eaglepointoutdoor@gmail.com?subject=Free%20estimate">Email us</a>
+          <button class="btn ghost" type="button" data-open-quote>Get my free estimate</button>
         </div>
         <ul class="checks">
           <li>Locally owned</li>
@@ -122,7 +122,7 @@
         </article>
       </div>
       <p class="note">Every property is different, so every quote starts with a free estimate. Call or text and we will give you a price for your driveway and walkways.</p>
-      <p class="actions" style="justify-content:center"><a class="btn" href="sms:+15074948960">Call / Text for a free estimate</a></p>
+      <p class="actions" style="justify-content:center"><button class="btn" type="button" data-open-quote>Get my free estimate</button><a class="btn ghost dark" href="sms:+15074948960">Call / Text</a></p>
     </div>
   </section>
 
@@ -179,5 +179,39 @@
     <span>Website made by <a href="https://buje.io">buje.io</a></span>
   </div>
 </footer>
+
+<dialog id="quote" aria-labelledby="quote-title">
+  <form method="dialog" class="qclose"><button aria-label="Close" class="x">&times;</button></form>
+  <form id="quote-form" class="qform">
+    <div class="qhead"><div><h2 id="quote-title">Never shovel your driveway again.</h2><p>Tell us about your place and we will be in touch.</p></div><img src="assets/logo-icon.svg" alt="" width="64" height="64"></div>
+    <input type="hidden" name="service" value="Winter snow removal">
+    <p class="pill">Snow season: Nov 1 to Mar 31</p>
+    <div class="row"><label>Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+    <label>Phone<input name="phone" type="tel" autocomplete="tel" required placeholder="(608) 555-0142"></label></div>
+    <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@email.com"></label>
+    <label>Service address<input name="address" autocomplete="street-address" required placeholder="Street address, La Crosse"></label>
+    <fieldset class="seg two"><legend>Interested in walkway shoveling?</legend>
+      <label><input type="radio" name="walkway" value="Yes"><span>Yes</span></label>
+      <label><input type="radio" name="walkway" value="No" checked><span>No</span></label>
+    </fieldset>
+    <label>Note about your property (optional)<textarea name="note" rows="2" placeholder="Steep driveway, corner lot, pavers, anything we should know"></textarea></label>
+    <label class="consent"><input type="checkbox" name="consent"><span>I agree to receive updates and offers from Eagle Point. I can unsubscribe at any time.</span></label>
+    <button class="btn go" type="submit">Get my free estimate</button>
+    <p class="priv">Private. We reply within one business day.</p>
+  </form>
+</dialog>
+<script>
+(function(){
+  var d=document.getElementById('quote'),f=document.getElementById('quote-form');
+  document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){d.showModal()})});
+  d.addEventListener('click',function(e){if(e.target===d)d.close()});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var v=new FormData(f);
+    var body=['Service: '+v.get('service'),'Name: '+v.get('name'),'Phone: '+v.get('phone'),'Email: '+v.get('email'),'Address: '+v.get('address'),'Walkway shoveling: '+v.get('walkway'),'Note: '+(v.get('note')||''),'Marketing OK: '+(v.get('consent')?'Yes':'No')].join('\n');
+    window.location.href='mailto:Eaglepointoutdoor@gmail.com?subject='+encodeURIComponent('Free estimate request')+'&body='+encodeURIComponent(body);
+    d.close();
+  });
+})();
+</script>
 </body>
 </html>
