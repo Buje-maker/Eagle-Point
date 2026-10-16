@@ -59,7 +59,7 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(48px,9vw,92px);lin
 .proof-grid span{font-family:var(--display);letter-spacing:.06em;text-transform:uppercase;font-size:14px}
 
 /* faq */
-.faq{max-width:760px}
+.faq{max-width:760px;width:100%}
 .faq details{background:var(--white);border:1px solid var(--rule);border-radius:10px;margin-bottom:10px;padding:0 20px}
 .faq summary{cursor:pointer;padding:16px 0;font-family:var(--display);font-weight:500;letter-spacing:.03em;font-size:20px;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:12px}
 .faq summary::-webkit-details-marker{display:none}
@@ -141,7 +141,7 @@ footer a{color:var(--gold)}
 /* quote popup */
 button.btn{cursor:pointer;font-family:var(--display)}
 .btn.ghost.dark{color:var(--navy);border-color:var(--navy)}
-dialog#quote{border:0;border-radius:18px;padding:0;width:min(560px,100% - 24px);max-height:92vh;overflow:auto;background:#fff;color:var(--ink);box-shadow:0 24px 60px rgba(15,31,43,.35)}
+dialog#quote{margin:auto;inset:0;border:0;border-radius:18px;padding:0;width:min(560px,100% - 24px);max-height:92vh;overflow:auto;background:#fff;color:var(--ink);box-shadow:0 24px 60px rgba(15,31,43,.35)}
 dialog#quote::backdrop{background:rgba(15,31,43,.6)}
 .qclose{position:absolute;top:14px;right:14px;margin:0}
 .x{width:38px;height:38px;border-radius:50%;border:0;background:var(--navy);color:#fff;font-size:24px;line-height:1;cursor:pointer}
@@ -168,3 +168,16 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .go{width:100%;font-size:19px;padding:16px}
 .priv{text-align:center;color:var(--muted);font-size:14px}
 @media (max-width:520px){.row{grid-template-columns:1fr}.qhead h2{font-size:26px}.qhead img{display:none}}
+
+/* mascot poses */
+.hero-art img.mascot{max-width:420px}
+.pose{height:auto;margin-inline:auto;filter:drop-shadow(0 6px 10px rgba(20,42,59,.15))}
+.pose.wide{max-width:340px;margin-top:18px}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:18px}
+.cta-row .pose{width:190px;margin:0}
+.cta-row .actions{margin:0}
+.contact .pose{width:170px;margin-top:20px}
+.faq-wrap{display:grid;grid-template-columns:220px 1fr;gap:34px;align-items:center;max-width:960px}
+.faq-eagle{width:220px}
+.qhead img{width:auto;height:84px}
+@media (max-width:860px){.faq-wrap{grid-template-columns:1fr}.faq-eagle{display:none}}
