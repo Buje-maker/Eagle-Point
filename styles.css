@@ -170,7 +170,7 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 @media (max-width:520px){.row{grid-template-columns:1fr}.qhead h2{font-size:26px}.qhead img{display:none}}
 
 /* mascot poses */
-.hero-art img.mascot{max-width:420px}
+.hero-art img.mascot{max-width:330px}
 .pose{height:auto;margin-inline:auto;filter:drop-shadow(0 6px 10px rgba(20,42,59,.15))}
 .pose.wide{max-width:340px;margin-top:18px}
 .cta-row{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:18px}
@@ -187,3 +187,5 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .qmsg[hidden]{display:none}
 
 .qform select{background:#fff;appearance:auto}
+
+@media (max-width:860px){.hero-art img.mascot{max-width:220px}.hero{padding-block:36px 48px}.cta-row .pose{width:150px}}
