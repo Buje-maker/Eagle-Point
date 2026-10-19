@@ -192,10 +192,6 @@
     <label>Phone<input name="phone" type="tel" autocomplete="tel" required placeholder="(608) 555-0142"></label></div>
     <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@email.com"></label>
     <label>Service address<input name="address" autocomplete="street-address" required placeholder="Street address, La Crosse"></label>
-    <fieldset class="seg two"><legend>Interested in walkway shoveling?</legend>
-      <label><input type="radio" name="walkway" value="Yes"><span>Yes</span></label>
-      <label><input type="radio" name="walkway" value="No" checked><span>No</span></label>
-    </fieldset>
     <label>Note about your property (optional)<textarea name="note" rows="2" placeholder="Steep driveway, corner lot, pavers, anything we should know"></textarea></label>
     <label class="consent"><input type="checkbox" name="consent"><span>I agree to receive updates and offers from Eagle Point. I can unsubscribe at any time.</span></label>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -212,7 +208,7 @@
   document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){msg.hidden=true;d.showModal()})});
   d.addEventListener('click',function(e){if(e.target===d)d.close()});
   function mailFallback(v){
-    var body=['Service: '+v.get('service'),'Name: '+v.get('name'),'Phone: '+v.get('phone'),'Email: '+v.get('email'),'Address: '+v.get('address'),'Walkway shoveling: '+v.get('walkway'),'Note: '+(v.get('note')||''),'Marketing OK: '+(v.get('consent')?'Yes':'No')].join('\n');
+    var body=['Service: '+v.get('service'),'Name: '+v.get('name'),'Phone: '+v.get('phone'),'Email: '+v.get('email'),'Address: '+v.get('address'),'Note: '+(v.get('note')||''),'Marketing OK: '+(v.get('consent')?'Yes':'No')].join('\n');
     window.location.href='mailto:Eaglepointoutdoor@gmail.com?subject='+encodeURIComponent('Free estimate request')+'&body='+encodeURIComponent(body);
   }
   f.addEventListener('submit',function(e){
