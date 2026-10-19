@@ -151,7 +151,7 @@ dialog#quote::backdrop{background:rgba(15,31,43,.6)}
 .qhead p{color:var(--muted);margin-top:6px;font-size:16px}
 .qhead img{flex:none}
 .qform label{display:grid;gap:6px;font-family:var(--display);font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.qform input:not([type=radio]):not([type=checkbox]),.qform textarea{font:inherit;font-size:17px;letter-spacing:0;text-transform:none;color:var(--ink);padding:12px 14px;border:2px solid var(--rule);border-radius:12px;width:100%}
+.qform select,.qform input:not([type=radio]):not([type=checkbox]),.qform textarea{font:inherit;font-size:17px;letter-spacing:0;text-transform:none;color:var(--ink);padding:12px 14px;border:2px solid var(--rule);border-radius:12px;width:100%}
 .qform input:focus,.qform textarea:focus{outline:3px solid var(--gold);border-color:var(--gold)}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 fieldset.seg{border:0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -185,3 +185,5 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .qmsg{background:#E8F3EA;border:2px solid #B7D8BD;color:#1F4D2B;border-radius:12px;padding:12px 14px;text-align:center;font-size:16px}
 .qmsg[hidden]{display:none}
+
+.qform select{background:#fff;appearance:auto}
