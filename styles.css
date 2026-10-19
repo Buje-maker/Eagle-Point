@@ -181,3 +181,7 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .faq-eagle{width:220px}
 .qhead img{width:auto;height:84px}
 @media (max-width:860px){.faq-wrap{grid-template-columns:1fr}.faq-eagle{display:none}}
+
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.qmsg{background:#E8F3EA;border:2px solid #B7D8BD;color:#1F4D2B;border-radius:12px;padding:12px 14px;text-align:center;font-size:16px}
+.qmsg[hidden]{display:none}
