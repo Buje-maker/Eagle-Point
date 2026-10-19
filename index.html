@@ -207,7 +207,7 @@
 <script>
 (function(){
   // Paste the Apps Script web app URL here (see "Eagle Point Lead Form.gs"). Empty = email draft fallback.
-  var LEAD_FORM_URL='';
+  var LEAD_FORM_URL='https://script.google.com/macros/s/AKfycbwvXBSsYk930swCCX3Qua5DZgE4MaNzr_qnVR20R7OcbtSIvOm6yHaJU8nuxKyO7DDZ/exec';
   var d=document.getElementById('quote'),f=document.getElementById('quote-form'),msg=document.getElementById('quote-msg'),btn=f.querySelector('button[type=submit]');
   document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){msg.hidden=true;d.showModal()})});
   d.addEventListener('click',function(e){if(e.target===d)d.close()});
