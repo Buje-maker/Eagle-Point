@@ -114,12 +114,12 @@
         <article class="plan">
           <h3>One time visit</h3>
           <ul class="ticks">
-            <li><b>Schedule a service</b></li>
+            <li><b>Request a service</b></li>
             <li><b>Flat rates</b></li>
             <li><b>No commitment</b></li>
-            <li><b>Book 12 hours ahead</b></li>
+            <li><b>Request 12 hours ahead</b></li>
           </ul>
-          <a class="btn" href="https://www.picktime.com/book/eaglepoint">Schedule with Picktime</a>
+          <button class="btn" type="button" data-open-quote="visit">Request a one time visit</button>
         </article>
         <article class="plan featured">
           <h3>Season Contract</h3>
@@ -168,7 +168,7 @@
       <details><summary>When does a Season Contract visit happen?</summary><p>Service begins automatically once snow accumulation reaches at least 3 inches, when it is safe for the crews to service. The season runs from November 1 to March 31.</p></details>
       <details><summary>Is salt included?</summary><p>Salt is included unless you prefer otherwise. For one time visits, salt is available on request.</p></details>
       <details><summary>What about pavers, sprinklers or other hazards?</summary><p>Tell us about anything hidden or delicate, such as pavers, sprinkler heads or pet fences, and we will work around it.</p></details>
-      <details><summary>How do I book a one time visit?</summary><p>Schedule a time on our <a href="https://www.picktime.com/book/eaglepoint">Picktime booking page</a>. When you schedule with Picktime, we will be able to do your order.</p></details>
+      <details><summary>How do I request a one time visit?</summary><p>Tap "Request a one time visit" on this page. Tell us your size and a day that works, and we will text you to confirm your price and time. Please ask at least 12 hours ahead.</p></details>
       <details><summary>How do I get a price?</summary><p>Every property is different, so we give a free estimate. Call or text <a href="tel:+15074948960">(507) 494-8960</a>.</p></details>
     </div></div>
   </section>
@@ -203,13 +203,18 @@
 <dialog id="quote" aria-labelledby="quote-title">
   <form method="dialog" class="qclose"><button aria-label="Close" class="x">&times;</button></form>
   <form id="quote-form" class="qform">
-    <div class="qhead"><div><h2 id="quote-title">Never shovel your driveway again.</h2><p>Tell us about your place and we will be in touch.</p></div><img src="assets/eagle-head.png" alt="" width="84" height="110"></div>
+    <div class="qhead"><div><h2 id="quote-title">Never shovel your driveway again.</h2><p id="quote-sub">Tell us about your place and we will be in touch.</p></div><img src="assets/eagle-head.png" alt="" width="84" height="110"></div>
     <input type="hidden" name="service" value="Winter snow removal">
     <p class="pill">Snow season: Nov 1 to Mar 31</p>
     <div class="row"><label>Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
     <label>Phone<input name="phone" type="tel" autocomplete="tel" required placeholder="(608) 555-0142"></label></div>
     <label>Email<input name="email" type="email" autocomplete="email" required placeholder="you@email.com"></label>
     <label>Service address<input name="address" autocomplete="street-address" required placeholder="Street address, La Crosse"></label>
+    <div class="visit-only" hidden>
+      <div class="row"><label>Property size<select name="size"><option value="" disabled selected>Choose one</option><option>Small</option><option>Medium</option><option>Large</option><option>Not sure</option></select></label>
+      <label>Salt<select name="salt"><option>No</option><option>Yes</option></select></label></div>
+      <label>Day and time that works<input name="when" placeholder="Tomorrow morning, or Tuesday after 3"></label>
+    </div>
     <label>Where did you find us?<select name="source" required><option value="" disabled selected>Choose one</option><option>Nextdoor</option><option>Flyer</option><option>Door hanger</option><option>Social media</option><option>Friend</option></select></label>
     <label>Note about your property (optional)<textarea name="note" rows="2" placeholder="Steep driveway, corner lot, pavers, anything we should know"></textarea></label>
     <label class="consent"><input type="checkbox" name="consent"><span>I agree to receive updates and offers from Eagle Point. I can unsubscribe at any time.</span></label>
@@ -224,20 +229,30 @@
   // Paste the Apps Script web app URL here (see "Eagle Point Lead Form.gs"). Empty = email draft fallback.
   var LEAD_FORM_URL='https://script.google.com/macros/s/AKfycbwvXBSsYk930swCCX3Qua5DZgE4MaNzr_qnVR20R7OcbtSIvOm6yHaJU8nuxKyO7DDZ/exec';
   var d=document.getElementById('quote'),f=document.getElementById('quote-form'),msg=document.getElementById('quote-msg'),btn=f.querySelector('button[type=submit]');
-  document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){msg.hidden=true;d.showModal()})});
+  var mode='estimate',svc=f.querySelector('[name=service]'),ttl=document.getElementById('quote-title'),sub=document.getElementById('quote-sub'),vis=f.querySelector('.visit-only');
+  function setMode(m){
+    mode=m;var visit=m==='visit';
+    svc.value=visit?'One time visit':'Winter snow removal';
+    ttl.textContent=visit?'Request a one time visit.':'Never shovel your driveway again.';
+    sub.textContent=visit?'Tell us your size and a day that works. We will text you to confirm your price and time.':'Tell us about your place and we will be in touch.';
+    vis.hidden=!visit;f.querySelector('[name=size]').required=visit;
+    btn.textContent=visit?'Request my visit':'Get my free estimate';
+  }
+  document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-open-quote')==='visit'?'visit':'estimate');msg.hidden=true;d.showModal()})});
   d.addEventListener('click',function(e){if(e.target===d)d.close()});
   function mailFallback(v){
     var body=['Service: '+v.get('service'),'Name: '+v.get('name'),'Phone: '+v.get('phone'),'Email: '+v.get('email'),'Address: '+v.get('address'),'Found us via: '+v.get('source'),'Note: '+(v.get('note')||''),'Marketing OK: '+(v.get('consent')?'Yes':'No')].join('\n');
-    window.location.href='mailto:Eaglepointoutdoor@gmail.com?subject='+encodeURIComponent('Free estimate request')+'&body='+encodeURIComponent(body);
+    window.location.href='mailto:Eaglepointoutdoor@gmail.com?subject='+encodeURIComponent((mode==='visit'?'One time visit request':'Free estimate request'))+'&body='+encodeURIComponent(body);
   }
   f.addEventListener('submit',function(e){
     e.preventDefault();var v=new FormData(f);
+    if(mode==='visit'){v.set('note','Size: '+v.get('size')+' | Salt: '+v.get('salt')+' | Preferred time: '+(v.get('when')||'not given')+(v.get('note')?' | '+v.get('note'):''));}
     if(!LEAD_FORM_URL){mailFallback(v);d.close();return}
     btn.disabled=true;btn.textContent='Sending...';
     var p=new URLSearchParams();v.forEach(function(val,k){p.append(k,val)});
     fetch(LEAD_FORM_URL,{method:'POST',mode:'no-cors',body:p}).then(function(){
-      f.reset();msg.textContent='Thank you. We got your request and will reply within one business day.';msg.hidden=false;
-    }).catch(function(){mailFallback(v);d.close()}).then(function(){btn.disabled=false;btn.textContent='Get my free estimate'});
+      f.reset();setMode(mode);msg.textContent=mode==='visit'?'Thank you. We got your request and will text you to confirm your price and time.':'Thank you. We got your request and will reply within one business day.';msg.hidden=false;
+    }).catch(function(){mailFallback(v);d.close()}).then(function(){btn.disabled=false;btn.textContent=mode==='visit'?'Request my visit':'Get my free estimate'});
   });
 })();
 </script>

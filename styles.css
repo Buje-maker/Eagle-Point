@@ -220,3 +220,6 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .hero-art img.mascot{max-width:190px;filter:none;margin-left:auto}
 .pose{filter:none}
 @media (max-width:860px){.hero-art img.mascot{max-width:110px}}
+
+.visit-only{display:grid;gap:14px}
+.visit-only[hidden]{display:none}
