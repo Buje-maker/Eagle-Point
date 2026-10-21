@@ -40,7 +40,7 @@ radial-gradient(circle,#fff 0 3px,transparent 4px) 40px 60px/160px 120px;
 animation:fall 28s linear infinite}
 @keyframes fall{to{background-position:20px 630px,60px 406px,40px 780px}}
 @media (prefers-reduced-motion:reduce){.snow{animation:none}html{scroll-behavior:auto}}
-.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.5fr .5fr;gap:32px;align-items:center}
 .eyebrow{font-family:var(--display);letter-spacing:.2em;text-transform:uppercase;color:var(--gold-dark);font-size:15px}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(48px,9vw,92px);line-height:1;text-transform:uppercase;margin:8px 0}
 .tagline{font-family:var(--display);font-weight:500;font-size:clamp(22px,4vw,30px);color:var(--gold-dark);letter-spacing:.03em}
@@ -172,7 +172,7 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 @media (max-width:520px){.row{grid-template-columns:1fr}.qhead h2{font-size:26px}.qhead img{display:none}}
 
 /* mascot poses */
-.hero-art img.mascot{max-width:330px}
+.hero-art img.mascot{max-width:230px}
 .pose{height:auto;margin-inline:auto;filter:drop-shadow(0 6px 10px rgba(20,42,59,.15))}
 .pose.wide{max-width:340px;margin-top:18px}
 .cta-row{display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:18px}
@@ -203,3 +203,16 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .ticks li{position:relative;padding-left:30px;line-height:1.4}
 .ticks li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--gold-dark);font-weight:700}
 .ticks b{font-family:var(--display);font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--navy)}
+
+/* eagle as a secondary element */
+.pose.wide{max-width:230px}
+.cta-row .pose{width:120px}
+.contact .pose{width:110px}
+.faq-eagle{width:150px}
+.faq-wrap{grid-template-columns:150px 1fr}
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-art{order:0}
+  .hero-art img.mascot{max-width:130px;margin-inline:0}
+  .cta-row .pose{width:100px}
+}
