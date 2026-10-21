@@ -197,3 +197,9 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .review-wrap{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;text-align:center}
 .review-text{font-size:20px}
 .review-text b{font-family:var(--display);font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--gold)}
+
+/* value prop bullets */
+.ticks{list-style:none;display:grid;gap:10px;font-size:18px}
+.ticks li{position:relative;padding-left:30px;line-height:1.4}
+.ticks li::before{content:"\2713";position:absolute;left:0;top:0;color:var(--gold-dark);font-weight:700}
+.ticks b{font-family:var(--display);font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--navy)}
