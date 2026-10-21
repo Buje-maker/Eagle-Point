@@ -191,3 +191,9 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .qform select{background:#fff;appearance:auto}
 
 @media (max-width:860px){.hero-art img.mascot{max-width:220px}.hero{padding-block:36px 48px}.cta-row .pose{width:150px}}
+
+/* review band */
+.review{background:var(--navy);color:var(--ivory);padding-block:30px}
+.review-wrap{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap;text-align:center}
+.review-text{font-size:20px}
+.review-text b{font-family:var(--display);font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--gold)}
