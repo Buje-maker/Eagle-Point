@@ -1,1 +1,8 @@
-{ "cleanUrls": true, "trailingSlash": false }
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/terms", "destination": "/", "permanent": false },
+    { "source": "/terms.html", "destination": "/", "permanent": false }
+  ]
+}
