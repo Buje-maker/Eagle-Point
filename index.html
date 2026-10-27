@@ -246,7 +246,10 @@
   }
   f.addEventListener('submit',function(e){
     e.preventDefault();var v=new FormData(f);
+    var tag='';try{var q=new URLSearchParams(location.search).get('utm_source');if(q)sessionStorage.setItem('ep_tag',q);tag=sessionStorage.getItem('ep_tag')||''}catch(x){}
+    if(tag)v.set('note',(v.get('note')?v.get('note')+' | ':'')+'Tag: '+tag);
     if(mode==='visit'){v.set('note','Size: '+v.get('size')+' | Salt: '+v.get('salt')+' | Preferred time: '+(v.get('when')||'not given')+(v.get('note')?' | '+v.get('note'):''));}
+    if(tag&&mode==='visit')v.set('note',v.get('note')+' | Tag: '+tag);
     if(!LEAD_FORM_URL){mailFallback(v);d.close();return}
     btn.disabled=true;btn.textContent='Sending...';
     var p=new URLSearchParams();v.forEach(function(val,k){p.append(k,val)});
