@@ -223,3 +223,5 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 
 .visit-only{display:grid;gap:14px}
 .visit-only[hidden]{display:none}
+
+@media (max-width:860px){.hero-art{display:none}}

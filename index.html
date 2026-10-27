@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Eagle Point Outdoor Services | Snow Removal in La Crosse, WI</title>
-<meta name="description" content="Snow removal for driveways, walkways, sidewalks and vehicles in La Crosse, Wisconsin. Choose a one time visit or a Season Contract. Call or text for a free estimate.">
+<meta name="description" content="Snow removal for driveways, walkways, sidewalks and vehicles in La Crosse, Wisconsin. Choose per push service or a Season Contract. Call or text for a free estimate.">
 <meta property="og:title" content="Eagle Point Outdoor Services | Snow Removal in La Crosse, WI">
 <meta property="og:description" content="Take the hassle out of winter. Driveways, walkways, sidewalks and vehicle clearing in La Crosse, WI.">
 <meta property="og:type" content="website">
@@ -62,7 +62,7 @@
         </div>
         <ul class="checks">
           <li>Locally owned</li>
-          <li>One time visits</li>
+          <li>Per push service</li>
           <li>Seasonal options</li>
         </ul>
       </div>
@@ -112,14 +112,14 @@
       <h2 class="title">Two ways to hire us</h2>
       <div class="two plans">
         <article class="plan">
-          <h3>One time visit</h3>
+          <h3>Per push</h3>
           <ul class="ticks">
             <li><b>Request a service</b></li>
             <li><b>Flat rates</b></li>
             <li><b>No commitment</b></li>
             <li><b>Request 12 hours ahead</b></li>
           </ul>
-          <button class="btn" type="button" data-open-quote="visit">Request a one time visit</button>
+          <button class="btn" type="button" data-open-quote="visit">Request per push service</button>
         </article>
         <article class="plan featured">
           <h3>Season Contract</h3>
@@ -142,7 +142,7 @@
       <h2 class="title">Four steps to a clear driveway</h2>
       <ol class="steps">
         <li><h3>Get a free estimate</h3><p>Call or text. We look at your driveway and walkways and give you a price.</p></li>
-        <li><h3>Choose your plan</h3><p>A one time visit, or a Season Contract with 10 visits and salt included.</p></li>
+        <li><h3>Choose your plan</h3><p>Per push service, or a Season Contract with 10 visits and salt included.</p></li>
         <li><h3>Tell us about your property</h3><p>Share any notes, like hazards, vehicles or special requests, so we can work around them.</p></li>
         <li><h3>We handle the rest</h3><p>We clear the snow when it is safe to do so and weather permits. Contract customers are cleared automatically.</p></li>
       </ol>
@@ -166,9 +166,9 @@
       <details><summary>What area do you serve?</summary><p>La Crosse, Wisconsin. Call or text and we will confirm your address.</p></details>
       <details><summary>Do you use a plow or a snowblower?</summary><p>We use a plow or a snowblower depending on your property. We will tell you which when we give your estimate.</p></details>
       <details><summary>When does a Season Contract visit happen?</summary><p>Service begins automatically once snow accumulation reaches at least 3 inches, when it is safe for the crews to service. The season runs from November 1 to March 31.</p></details>
-      <details><summary>Is salt included?</summary><p>Salt is included unless you prefer otherwise. For one time visits, salt is available on request.</p></details>
+      <details><summary>Is salt included?</summary><p>Salt is included unless you prefer otherwise. For per push service, salt is available on request.</p></details>
       <details><summary>What about pavers, sprinklers or other hazards?</summary><p>Tell us about anything hidden or delicate, such as pavers, sprinkler heads or pet fences, and we will work around it.</p></details>
-      <details><summary>How do I request a one time visit?</summary><p>Tap "Request a one time visit" on this page. Tell us your size and a day that works, and we will text you to confirm your price and time. Please ask at least 12 hours ahead.</p></details>
+      <details><summary>How do I request per push service?</summary><p>Tap "Request per push service" on this page. Tell us your size and a day that works, and we will text you to confirm your price and time. Please ask at least 12 hours ahead.</p></details>
       <details><summary>How do I get a price?</summary><p>Every property is different, so we give a free estimate. Call or text <a href="tel:+15074948960">(507) 494-8960</a>.</p></details>
     </div></div>
   </section>
@@ -216,7 +216,7 @@
       <label>Day and time that works<input name="when" placeholder="Tomorrow morning, or Tuesday after 3"></label>
     </div>
     <label>Where did you find us?<select name="source" required><option value="" disabled selected>Choose one</option><option>Nextdoor</option><option>Flyer</option><option>Door hanger</option><option>Social media</option><option>Friend</option></select></label>
-    <label>Note about your property (optional)<textarea name="note" rows="2" placeholder="Steep driveway, corner lot, pavers, anything we should know"></textarea></label>
+    <label>Property notes<textarea name="note" rows="2" placeholder="Steep driveway, corner lot, pavers, anything we should know"></textarea></label>
     <label class="consent"><input type="checkbox" name="consent"><span>I agree to receive updates and offers from Eagle Point. I can unsubscribe at any time.</span></label>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
     <button class="btn go" type="submit">Get my free estimate</button>
@@ -232,8 +232,8 @@
   var mode='estimate',svc=f.querySelector('[name=service]'),ttl=document.getElementById('quote-title'),sub=document.getElementById('quote-sub'),vis=f.querySelector('.visit-only');
   function setMode(m){
     mode=m;var visit=m==='visit';
-    svc.value=visit?'One time visit':'Winter snow removal';
-    ttl.textContent=visit?'Request a one time visit.':'Never shovel your driveway again.';
+    svc.value=visit?'Per push service':'Winter snow removal';
+    ttl.textContent=visit?'Request per push service.':'Never shovel your driveway again.';
     sub.textContent=visit?'Tell us your size and a day that works. We will text you to confirm your price and time.':'Tell us about your place and we will be in touch.';
     vis.hidden=!visit;f.querySelector('[name=size]').required=visit;
     btn.textContent=visit?'Request my visit':'Get my free estimate';
@@ -242,7 +242,7 @@
   d.addEventListener('click',function(e){if(e.target===d)d.close()});
   function mailFallback(v){
     var body=['Service: '+v.get('service'),'Name: '+v.get('name'),'Phone: '+v.get('phone'),'Email: '+v.get('email'),'Address: '+v.get('address'),'Found us via: '+v.get('source'),'Note: '+(v.get('note')||''),'Marketing OK: '+(v.get('consent')?'Yes':'No')].join('\n');
-    window.location.href='mailto:Eaglepointoutdoor@gmail.com?subject='+encodeURIComponent((mode==='visit'?'One time visit request':'Free estimate request'))+'&body='+encodeURIComponent(body);
+    window.location.href='mailto:Eaglepointoutdoor@gmail.com?subject='+encodeURIComponent((mode==='visit'?'Per push request':'Free estimate request'))+'&body='+encodeURIComponent(body);
   }
   f.addEventListener('submit',function(e){
     e.preventDefault();var v=new FormData(f);
