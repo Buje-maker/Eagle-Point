@@ -225,3 +225,38 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .visit-only[hidden]{display:none}
 
 @media (max-width:860px){.hero-art{display:none}}
+
+/* mobile timeline for the four steps */
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps li{background:none;border:0;border-radius:0;padding:0 0 28px 62px;position:relative}
+  .steps li::before{position:absolute;left:0;top:0;margin:0;z-index:1}
+  .steps li::after{content:"";position:absolute;left:18px;top:46px;bottom:6px;width:2px;background:var(--gold)}
+  .steps li:last-child{padding-bottom:0}
+  .steps li:last-child::after{display:none}
+  .steps h3{font-size:20px;padding-top:6px}
+}
+
+/* cleaner mobile sections */
+@media (max-width:520px){
+  .grid4{gap:10px}
+  .tile{padding:14px 16px}
+  .tile h3{font-size:19px;margin-bottom:2px}
+  .tile p{font-size:15px}
+  .pose,.pose.wide{display:none}
+  .plan{padding:20px}
+  .plan h3{font-size:24px}
+  .ticks{font-size:16px;gap:8px}
+  .cta-row{margin-top:8px}
+  .cta-row .actions{flex-direction:column;width:100%}
+  .cta-row .actions .btn{width:100%;text-align:center}
+}
+
+/* faq full width on mobile (earlier rule was overriding the single column) */
+@media (max-width:860px){
+  .faq-wrap{grid-template-columns:1fr;gap:0}
+  .faq{max-width:100%;min-width:0}
+}
+@media (max-width:520px){
+  .faq summary{font-size:18px}
+}
