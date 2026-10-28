@@ -289,3 +289,15 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 .work{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
 .work img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:12px;border:1px solid var(--rule)}
 @media (max-width:520px){.work{gap:8px;margin-top:18px}.work img{border-radius:8px}}
+
+/* smaller hassle band */
+.band{padding-block:40px}
+.card{padding:4px 0 4px 18px;border-left-width:4px}
+.card h2{font-size:24px;margin-bottom:6px}
+.card p{font-size:16px;line-height:1.6}
+@media (max-width:520px){
+  .band{padding-block:28px}
+  .band .two{gap:20px}
+  .card h2{font-size:21px}
+  .card p{font-size:15px}
+}
