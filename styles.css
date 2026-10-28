@@ -275,6 +275,7 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 
 /* mobile landing: full page, tighter spacing */
 @media (max-width:860px){
+  .hero{min-height:calc(100svh - 56px);display:flex;align-items:center;padding-block:40px}
   .hero .actions{flex-direction:column;align-items:stretch}
   .hero .actions .btn{width:100%;text-align:center}
 }
