@@ -260,3 +260,15 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
 @media (max-width:520px){
   .faq summary{font-size:18px}
 }
+
+/* cleaner plans and contact on mobile */
+@media (max-width:860px){
+  .contact .pose{display:none}
+  .contact{padding-bottom:8px}
+  .contact .big{font-size:44px}
+  .plans{gap:14px}
+}
+@media (max-width:520px){
+  .plan .btn{width:100%;text-align:center}
+  .section .note{font-size:15px;margin-top:18px}
+}
