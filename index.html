@@ -105,7 +105,7 @@
           <ul class="ticks">
             <li><b>Request a service</b></li>
             <li><b>No commitment</b></li>
-            <li><b>Request 8 to 12 hours ahead</b></li>
+            <li><b>Request at least 8 hours before snowfall</b></li>
           </ul>
           <button class="btn" type="button" data-open-quote="visit">Request per push service</button>
         </article>
@@ -168,7 +168,7 @@
       <details><summary>When does a Season Contract visit happen?</summary><p>Service begins automatically once snow accumulation reaches at least 3 inches, when it is safe for the crews to service. The season runs from November 1 to March 31.</p></details>
       <details><summary>Is salt included?</summary><p>Salt is included unless you prefer otherwise. For per push service, salt is available on request.</p></details>
       <details><summary>What about pavers, sprinklers or other hazards?</summary><p>Tell us about anything hidden or delicate, such as pavers, sprinkler heads or pet fences, and we will work around it.</p></details>
-      <details><summary>How do I request per push service?</summary><p>Tap "Request per push service" on this page. Tell us your size and a day that works, and we will text you to confirm your price and time. Please ask 8 to 12 hours ahead.</p></details>
+      <details><summary>How do I request per push service?</summary><p>Tap "Request per push service" on this page. Tell us your size and a day that works, and we will text you to confirm your price and time. Please ask at least 8 hours before the snow starts. We cannot guarantee we will be able to plow every request. You will get a confirmation email within 1 to 2 hours confirming you are on the list.</p></details>
       <details><summary>How do I get a price?</summary><p>Every property is different, so we give a free estimate. Call or text <a href="tel:+15074948960">(507) 494-8960</a>.</p></details>
     </div></div>
   </section>
@@ -215,6 +215,7 @@
       <label>Salt<select name="salt"><option>No</option><option>Yes</option></select></label></div>
       <div class="row"><label>Day needed<input type="date" name="whendate"></label>
       <label>Time of day<select name="whentime"><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Anytime</option></select></label></div>
+      <label class="consent"><input type="checkbox" name="ack"><span>I understand requests need at least 8 hours before snowfall, and service is not guaranteed.</span></label>
     </div>
     <label>Where did you find us?<select name="source" required><option value="" disabled selected>Choose one</option><option>Nextdoor</option><option>Flyer</option><option>Door hanger</option><option>Social media</option><option>Friend</option></select></label>
     <label>Property notes<textarea name="note" rows="2" placeholder="Steep driveway, corner lot, pavers, anything we should know"></textarea></label>
@@ -235,8 +236,8 @@
     mode=m;var visit=m==='visit';
     svc.value=visit?'Per push service':'Winter snow removal';
     ttl.textContent=visit?'Request per push service.':'Never shovel your driveway again.';
-    sub.textContent=visit?'Tell us your size and a day that works. We will text you to confirm your price and time.':'Tell us about your place and we will be in touch.';
-    vis.hidden=!visit;f.querySelector('[name=size]').required=visit;var wd=f.querySelector('[name=whendate]');wd.required=visit;wd.min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
+    sub.textContent=visit?'Request at least 8 hours before the snow starts. We cannot guarantee we will be able to plow every request. You will get an email within 1 to 2 hours confirming you are on the list.':'Tell us about your place and we will be in touch.';
+    vis.hidden=!visit;f.querySelector('[name=size]').required=visit;var wd=f.querySelector('[name=whendate]');wd.required=visit;f.querySelector('[name=ack]').required=visit;wd.min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
     btn.textContent=visit?'Request my visit':'Get my free estimate';
   }
   document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-open-quote')==='visit'?'visit':'estimate');msg.hidden=true;d.showModal()})});
@@ -256,7 +257,7 @@
     btn.disabled=true;btn.textContent='Sending...';
     var p=new URLSearchParams();v.forEach(function(val,k){p.append(k,val)});
     fetch(LEAD_FORM_URL,{method:'POST',mode:'no-cors',body:p}).then(function(){
-      f.reset();setMode(mode);msg.textContent=mode==='visit'?'Thank you. We got your request and will text you to confirm your price and time.':'Thank you. We got your request and will reply within one business day.';msg.hidden=false;
+      f.reset();setMode(mode);msg.textContent=mode==='visit'?'Thank you. Watch your email. Within 1 to 2 hours you will get a confirmation that you are on the list. We cannot guarantee we will be able to plow every request.':'Thank you. We got your request and will reply within one business day.';msg.hidden=false;
     }).catch(function(){mailFallback(v);d.close()}).then(function(){btn.disabled=false;btn.textContent=mode==='visit'?'Request my visit':'Get my free estimate'});
   });
 })();
