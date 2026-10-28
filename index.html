@@ -213,7 +213,8 @@
     <div class="visit-only" hidden>
       <div class="row"><label>Property size<select name="size"><option value="" disabled selected>Choose one</option><option>Small</option><option>Medium</option><option>Large</option><option>Not sure</option></select></label>
       <label>Salt<select name="salt"><option>No</option><option>Yes</option></select></label></div>
-      <label>Day and time that works<input name="when" placeholder="Tomorrow morning, or Tuesday after 3"></label>
+      <div class="row"><label>Day needed<input type="date" name="whendate"></label>
+      <label>Time of day<select name="whentime"><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Anytime</option></select></label></div>
     </div>
     <label>Where did you find us?<select name="source" required><option value="" disabled selected>Choose one</option><option>Nextdoor</option><option>Flyer</option><option>Door hanger</option><option>Social media</option><option>Friend</option></select></label>
     <label>Property notes<textarea name="note" rows="2" placeholder="Steep driveway, corner lot, pavers, anything we should know"></textarea></label>
@@ -235,7 +236,7 @@
     svc.value=visit?'Per push service':'Winter snow removal';
     ttl.textContent=visit?'Request per push service.':'Never shovel your driveway again.';
     sub.textContent=visit?'Tell us your size and a day that works. We will text you to confirm your price and time.':'Tell us about your place and we will be in touch.';
-    vis.hidden=!visit;f.querySelector('[name=size]').required=visit;
+    vis.hidden=!visit;f.querySelector('[name=size]').required=visit;var wd=f.querySelector('[name=whendate]');wd.required=visit;wd.min=new Date(Date.now()-new Date().getTimezoneOffset()*60000).toISOString().slice(0,10);
     btn.textContent=visit?'Request my visit':'Get my free estimate';
   }
   document.querySelectorAll('[data-open-quote]').forEach(function(b){b.addEventListener('click',function(){setMode(b.getAttribute('data-open-quote')==='visit'?'visit':'estimate');msg.hidden=true;d.showModal()})});
@@ -248,6 +249,7 @@
     e.preventDefault();var v=new FormData(f);
     var tag='';try{var q=new URLSearchParams(location.search).get('utm_source');if(q)sessionStorage.setItem('ep_tag',q);tag=sessionStorage.getItem('ep_tag')||''}catch(x){}
     v.set('tag',tag);v.set('usernote',v.get('note')||'');
+    if(mode==='visit'){var dv=v.get('whendate');v.set('when',dv?new Date(dv+'T12:00:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})+', '+v.get('whentime'):'');}
     if(mode==='visit'){v.set('note','Size: '+v.get('size')+' | Salt: '+v.get('salt')+' | Preferred time: '+(v.get('when')||'not given')+(v.get('note')?' | '+v.get('note'):''));}
     if(tag)v.set('note',(v.get('note')?v.get('note')+' | ':'')+'Tag: '+tag);
     if(!LEAD_FORM_URL){mailFallback(v);d.close();return}
