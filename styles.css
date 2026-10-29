@@ -336,3 +336,60 @@ fieldset.seg input:focus-visible+span{outline:3px solid var(--gold)}
   .brand small{font-size:8px;letter-spacing:.24em}
   .btn.small{padding:9px 12px;font-size:13px;white-space:nowrap}
 }
+
+/* match the landing page mockup: cream header, left headings, clean cards, navy contact band */
+.top{background:var(--ivory);border-bottom:1px solid #E6E1D3}
+.brand b{color:var(--navy);font-size:24px}
+.brand small{color:#5B6770;letter-spacing:.28em}
+nav a{color:var(--navy);font-weight:500}
+nav a:hover{color:var(--gold-dark)}
+.btn.small{background:var(--navy);color:var(--ivory)}
+.btn.small:hover{background:#1d3a50}
+.hero .checks li::before{content:"\2022";font-weight:400}
+.hero .checks{gap:10px 28px}
+.title{text-align:left;font-size:clamp(32px,5vw,44px);margin-bottom:34px}
+.section{padding-block:72px 8px}
+.section.tint{background:transparent}
+#about{background:#EFE7D3;padding-block:56px;margin-top:64px}
+#about .about{max-width:1000px}
+#about .title.left{margin-bottom:16px}
+.tile{border-radius:14px;padding:26px}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.photos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
+.plans{align-items:stretch}
+.plan{border-radius:18px;padding:36px;gap:6px}
+.plan h3{font-size:30px}
+.plan .sub{color:var(--muted);margin-bottom:10px}
+.plan .ticks{list-style:disc;display:block;padding-left:20px;margin:12px 0 26px;line-height:1.9}
+.plan .ticks li{padding-left:0}
+.plan .ticks li::before{content:none}
+.plan .btn{align-self:flex-start;margin-top:auto}
+.plan.featured{background:var(--navy);color:var(--ivory);border:none}
+.plan.featured h3{color:var(--ivory)}
+.plan.featured .sub{color:#A9CCE0}
+.plan .pop{font-family:var(--display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.steps li{border-radius:14px}
+#faq .faq{max-width:900px}
+.faq details{background:none;border:none;border-top:1px solid #D9D2BC;border-radius:0;margin:0;padding:0}
+.faq details:last-child{border-bottom:1px solid #D9D2BC}
+.faq summary{font-family:var(--body);font-weight:600;letter-spacing:0;font-size:19px;padding:20px 0 6px}
+.faq details p{padding-bottom:20px}
+.contactband{background:var(--navy);color:var(--ivory);margin-top:72px}
+.contactband .cb{display:flex;flex-wrap:wrap;gap:32px;align-items:center;justify-content:space-between;padding-block:64px}
+.contactband h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,48px);text-transform:uppercase;line-height:1.1}
+.contactband p{font-size:20px;color:#A9CCE0;margin-top:10px}
+.contactband .cbr{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.contactband .btn.phone{font-size:26px;padding:16px 32px}
+.contactband .cbr a:not(.btn){color:var(--ivory);font-size:17px}
+footer{background:#0F2130;color:#9FB0BC}
+footer a{color:var(--ivory)}
+@media (max-width:860px){
+  .photos{grid-template-columns:1fr}
+  .section{padding-block:56px 8px}
+  .plan{padding:28px}
+  .contactband .cb{padding-block:48px}
+}
+@media (max-width:520px){
+  .brand b{font-size:18px}
+  .plan .btn{align-self:stretch}
+}
