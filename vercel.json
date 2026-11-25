@@ -1,21 +1,18 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/terms",
-      "destination": "/",
-      "permanent": false
-    },
-    {
-      "source": "/terms.html",
-      "destination": "/",
-      "permanent": false
-    }
-  ],
   "headers": [
     {
       "source": "/season-contract-terms",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/assets/eagle-point-season-contract-terms.pdf",
       "headers": [
         {
           "key": "X-Robots-Tag",
